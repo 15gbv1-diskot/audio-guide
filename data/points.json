@@ -1,54 +1,54 @@
 [
-    {
-        "id": 1,
-        "number": 1,
-        "title": "Театральная площадь",
-        "lat": 44.0433,
-        "lng": 42.8594,
-        "description": "Театральная площадь — главная площадь города Ессентуки, которая является его культурным и административным центром.",
-        "image": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/images/point1.jpg",
-        "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point1.m4a",
-        "text": "Театральная площадь — главная площадь города Ессентуки...",
-        "duration": 120,
-        "status": "not_visited"
-    },
-    {
-        "id": 2,
-        "number": 2,
-        "title": "Вход в парк",
-        "lat": 44.0440,
-        "lng": 42.8620,
-        "description": "Главный вход в Курортный парк Ессентуков — это величественная арка, которая является визитной карточкой города.",
-        "image": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/images/point2.jpg",
-        "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point2.m4a",
-        "text": "Главный вход в Курортный парк Ессентуков...",
-        "duration": 90,
-        "status": "not_visited"
-    },
-    {
-        "id": 3,
-        "number": 3,
-        "title": "Театр-парк",
-        "lat": 44.0450,
-        "lng": 42.8640,
-        "description": "Театр-парк — это уникальное общественное пространство, где находится летний театр, а также множество фонтанов и скульптур.",
-        "image": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/images/point3.jpg",
-        "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point3.m4a",
-        "text": "Театр-парк — это уникальное общественное пространство...",
-        "duration": 150,
-        "status": "not_visited"
-    },
-    {
-        "id": 4,
-        "number": 4,
-        "title": "Источник № 17",
-        "lat": 44.0460,
-        "lng": 42.8660,
-        "description": "Источник № 17 — это знаменитый питьевой источник Ессентуков, который является одним из самых популярных среди посетителей.",
-        "image": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/images/point4.jpg",
-        "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point4.m4a",
-        "text": "Источник № 17 — это знаменитый питьевой источник Ессентуков...",
-        "duration": 110,
-        "status": "not_visited"
-    }
+  {
+    "id": 1782551203570,
+    "number": 1,
+    "title": "Театральная площадь",
+    "lat": 44.044672,
+    "lng": 42.858784,
+    "description": "Театральная площадь — главная площадь города Ессентуки, которая является его культурным и административным центром.",
+    "image": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/images/point1.jpg",
+    "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point1.m4a",
+    "text": "Театральная площадь — главная площадь города Ессентуки...",
+    "duration": 120,
+    "status": "not_visited"
+  },
+  {
+    "id": 1782551228835,
+    "number": 2,
+    "title": "Вход в парк",
+    "lat": 44.044366,
+    "lng": 42.859698,
+    "description": "Главный вход в Курортный парк Ессентуков — это величественная арка, которая является визитной карточкой города.",
+    "image": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/images/point2.jpg",
+    "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point2.m4a",
+    "text": "Главный вход в Курортный парк Ессентуков...",
+    "duration": 90,
+    "status": "not_visited"
+  },
+  {
+    "id": 1782551263360,
+    "number": 3,
+    "title": "Театр-парк",
+    "lat": 44.044401,
+    "lng": 42.860575,
+    "description": "Театр-парк — это уникальное общественное пространство, где находится летний театр, а также множество фонтанов и скульптур.",
+    "image": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/images/point3.jpg",
+    "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point3.m4a",
+    "text": "Театр-парк — это уникальное общественное пространство...",
+    "duration": 150,
+    "status": "not_visited"
+  },
+  {
+    "id": 1782551296528,
+    "number": 4,
+    "title": "Источник № 17",
+    "lat": 44.044688,
+    "lng": 42.861001,
+    "description": "Источник № 17 — это знаменитый питьевой источник Ессентуков, который является одним из самых популярных среди посетителей.",
+    "image": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/images/point4.jpg",
+    "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point4.m4a",
+    "text": "Источник № 17 — это знаменитый питьевой источник Ессентуков...",
+    "duration": 110,
+    "status": "not_visited"
+  }
 ]
