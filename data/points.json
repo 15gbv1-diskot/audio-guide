@@ -1,15 +1,15 @@
 [
   {
-    "id": 1,
+    "id": 1782550617930,
     "number": 1,
     "title": "Театральная площадь",
-    "lat": 44.0433,
-    "lng": 42.8594,
+    "lat": 44.043302,
+    "lng": 42.859395,
     "description": "Театральная площадь — главная площадь города Ессентуки, которая является его культурным и административным центром. Здесь находится Драматический театр и проводятся основные городские мероприятия.",
-    "image": "https://via.placeholder.com/400x300/3498db/ffffff?text=Театральная+площадь",
-    "audio": "data/audio/point1.mp3",
+    "image": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point1.jpg",
+    "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point1.m4a",
     "text": "Театральная площадь — главная площадь города Ессентуки...",
-    "duration": 120,
+    "duration": 550,
     "status": "not_visited"
   },
   {
