@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель аудиогида</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .left-panel {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .right-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        #map {
+            height: 500px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 14px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .btn-danger {
+            background: #e74c3c;
+        }
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+        .btn-success {
+            background: #27ae60;
+        }
+        .btn-success:hover {
+            background: #229954;
+        }
+        .btn-warning {
+            background: #f39c12;
+        }
+        .btn-warning:hover {
+            background: #d68910;
+        }
+        .points-list {
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .point-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid #3498db;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .point-info {
+            flex: 1;
+        }
+        .point-info h3 {
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+        .point-info p {
+            color: #7f8c8d;
+            font-size: 13px;
+            margin: 3px 0;
+        }
+        .point-actions button {
+            padding: 6px 12px;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        .status-message {
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            display: none;
+        }
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .coords-display {
+            background: #f0f0f0;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+        .map-instruction {
+            background: #e8f4f8;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+        }
+        .map-instruction strong {
+            color: #e74c3c;
+        }
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 10px; }
+            .left-panel, .right-panel { padding: 15px; }
+            #map { height: 350px; }
+            .point-item { flex-direction: column; align-items: stretch; }
+            .point-actions { margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Левая панель: Форма и список -->
+        <div class="left-panel">
+            <h1>📋 Админ-панель аудиогида</h1>
+            
+            <div id="statusMessage" class="status-message"></div>
+            
+            <form id="pointForm">
+                <div class="form-group">
+                    <label>Название точки *</label>
+                    <input type="text" id="pointTitle" required placeholder="Например: Театральная площадь">
+                </div>
+                
+                <div class="form-group">
+                    <label>Номер точки *</label>
+                    <input type="number" id="pointNumber" required placeholder="1" min="1">
+                </div>
+                
+                <div class="form-group">
+                    <label>Координаты (нажмите на карту справа)</label>
+                    <div class="coords-display" id="coordsDisplay">
+                        Широта: <span id="displayLat">-</span>, Долгота: <span id="displayLng">-</span>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 5px;">
+                        <input type="number" id="pointLat" step="0.000001" placeholder="Широта" style="flex:1;">
+                        <input type="number" id="pointLng" step="0.000001" placeholder="Долгота" style="flex:1;">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Описание *</label>
+                    <textarea id="pointDescription" required placeholder="Описание достопримечательности..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>URL изображения</label>
+                    <input type="url" id="pointImage" placeholder="https://ваш-сайт.com/images/point1.jpg">
+                </div>
+                
+                <div class="form-group">
+                    <label>URL аудиофайла *</label>
+                    <input type="url" id="pointAudio" required placeholder="https://ваш-сайт.com/data/audio/point1.mp3">
+                </div>
+                
+                <div class="form-group">
+                    <label>Текст аудио (для слабослышащих)</label>
+                    <textarea id="pointText" placeholder="Транскрипция аудио..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Длительность (секунд)</label>
+                    <input type="number" id="pointDuration" placeholder="120" min="1">
+                </div>
+                
+                <div class="form-group">
+                    <label>Статус</label>
+                    <select id="pointStatus">
+                        <option value="not_visited">Не посещено</option>
+                        <option value="current">Текущая</option>
+                        <option value="visited">Прослушано</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">➕ Добавить/Обновить точку</button>
+                    <button type="button" id="clearFormBtn" class="btn btn-warning">🔄 Очистить форму</button>
+                </div>
+            </form>
+            
+            <div class="points-list">
+                <h2>📌 Список точек (<span id="pointCount">0</span>)</h2>
+                <div id="pointsList"></div>
+            </div>
+            
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #ecf0f1;">
+                <button type="button" id="exportBtn" class="btn">📤 Экспорт в JSON</button>
+                <button type="button" id="importBtn" class="btn">📥 Импорт из JSON</button>
+                <button type="button" id="downloadAudioBtn" class="btn btn-success">📦 Скачать все аудио</button>
+            </div>
+        </div>
+        
+        <!-- Правая панель: Карта -->
+        <div class="right-panel">
+            <h2>🗺️ Кликните на карте для добавления точки</h2>
+            <div class="map-instruction">
+                💡 <strong>Инструкция:</strong> Нажмите на карту в нужном месте, 
+                координаты автоматически заполнятся в форме. Затем заполните остальные поля и сохраните точку.
+            </div>
+            <div id="map"></div>
+            <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+                <button type="button" id="centerMapBtn" class="btn" style="flex:1;">🎯 Центрировать на Ессентуки</button>
+                <button type="button" id="clearPointsBtn" class="btn btn-danger" style="flex:1;">🗑️ Очистить все точки</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

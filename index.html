@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Аудиогид по КМВ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="user-info">
+                <img id="userAvatar" src="" alt="Avatar" class="user-avatar">
+                <span id="userName">Гость</span>
+            </div>
+            <button id="settingsBtn" class="settings-btn">⚙️</button>
+        </header>
+
+        <!-- Map -->
+        <div id="map"></div>
+
+        <!-- Bottom Sheet -->
+        <div id="bottomSheet" class="bottom-sheet">
+            <div class="sheet-handle"></div>
+            <div class="sheet-content">
+                <div id="pointInfo" style="display: none;">
+                    <div class="point-header">
+                        <h2 id="pointTitle"></h2>
+                        <span class="point-number" id="pointNumber"></span>
+                    </div>
+                    <div class="point-image">
+                        <img id="pointImage" src="" alt="Достопримечательность">
+                    </div>
+                    <div class="point-description" id="pointDescription"></div>
+                    
+                    <!-- Audio Player -->
+                    <div class="audio-player" id="audioPlayer">
+                        <div class="player-controls">
+                            <button id="playBtn" class="player-btn">▶</button>
+                            <button id="rewindBackBtn" class="player-btn">⏪</button>
+                            <button id="rewindForwardBtn" class="player-btn">⏩</button>
+                            <div class="speed-control">
+                                <button id="speedBtn" class="speed-btn">1.0x</button>
+                            </div>
+                        </div>
+                        <div class="progress-container">
+                            <input type="range" id="progressBar" min="0" max="100" value="0">
+                            <div class="time-display">
+                                <span id="currentTime">0:00</span>
+                                <span id="totalTime">0:00</span>
+                            </div>
+                        </div>
+                        <button id="downloadBtn" class="download-btn">💾 Скачать аудио</button>
+                    </div>
+                </div>
+                <div id="loadingState">
+                    <div class="loading-spinner"></div>
+                    <p>Загрузка данных...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
