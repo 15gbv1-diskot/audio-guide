@@ -7,7 +7,7 @@
         "lng": 42.8594,
         "description": "Театральная площадь — главная площадь города Ессентуки, которая является его культурным и административным центром.",
         "image": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/images/point1.jpg",
-        "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point1.mp3",
+        "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point1.m4a",
         "text": "Театральная площадь — главная площадь города Ессентуки...",
         "duration": 120,
         "status": "not_visited"
@@ -20,7 +20,7 @@
         "lng": 42.8620,
         "description": "Главный вход в Курортный парк Ессентуков — это величественная арка, которая является визитной карточкой города.",
         "image": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/images/point2.jpg",
-        "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point2.mp3",
+        "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point2.m4a",
         "text": "Главный вход в Курортный парк Ессентуков...",
         "duration": 90,
         "status": "not_visited"
@@ -33,7 +33,7 @@
         "lng": 42.8640,
         "description": "Театр-парк — это уникальное общественное пространство, где находится летний театр, а также множество фонтанов и скульптур.",
         "image": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/images/point3.jpg",
-        "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point3.mp3",
+        "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point3.m4a",
         "text": "Театр-парк — это уникальное общественное пространство...",
         "duration": 150,
         "status": "not_visited"
@@ -46,7 +46,7 @@
         "lng": 42.8660,
         "description": "Источник № 17 — это знаменитый питьевой источник Ессентуков, который является одним из самых популярных среди посетителей.",
         "image": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/images/point4.jpg",
-        "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point4.mp3",
+        "audio": "https://raw.githubusercontent.com/15gbv1-diskot/audio-guide/main/data/audio/point4.m4a",
         "text": "Источник № 17 — это знаменитый питьевой источник Ессентуков...",
         "duration": 110,
         "status": "not_visited"
